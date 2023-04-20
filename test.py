@@ -36,20 +36,7 @@ def abbey(prev_opponent_play,
     ideal_response = {'P': 'S', 'R': 'P', 'S': 'R'}
     return ideal_response[prediction]
 
-import random
 
-# List of possible choices
-choices = ["R", "P", "S"]
 
-# Generate an array of length 20 with random choices
-random_array = [random.choice(choices) for _ in range(20)]
-a = []
-print(random_array)
-
-# Iterate over the array and call the function with each element as input
-for choice in random_array:
-    a.append(abbey(choice))
-
-print(a)
 
 
