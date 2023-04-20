@@ -1,2 +1,3 @@
-# RPS_LSTM
-LSTM that plays Rock Paper Scissors
+# RPS
+
+Code for the first challenge of the Machine lEarning with python course from FreeCodeCam
