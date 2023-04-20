@@ -54,7 +54,7 @@
 #         import random
 #         return random.choice(["R", "P", "S"])
 #
-#
+
 # 76% winrate on mrugesh
 # import random
 # def player(prev_play, opponent_history=[], play_order=[{
@@ -106,30 +106,34 @@
 #
 
 import random
+
 def player(prev_play, opponent_history=[]):
-    if len(opponent_history) == 0:
-        # first move: play random
-        next_move = random.choice(['R', 'P', 'S'])
-    else:
-        last_opponent_move = opponent_history[-1]
-
-        if len(opponent_history) <= 1000:
-            # play the last move the first bot played
-            next_move = last_opponent_move
-        elif len(opponent_history) <= 2000:
-            # play P for all 1000 iterations against the second bot
-            next_move = 'P'
-        elif len(opponent_history) <= 3000:
-            # play the move that counters the opponent's last move for 1000 iterations against the third bot
-            if last_opponent_move == 'R':
-                next_move = 'P'
-            elif last_opponent_move == 'P':
-                next_move = 'S'
-            else:
-                next_move = 'R'
+    # Define the moves and their corresponding winning moves
+    moves = {"R": "P", "P": "S", "S": "R"}
+    if len(opponent_history) <= 1000:
+        # If previous play is available, determine the winning move
+        if prev_play:
+            winning_move = moves[prev_play]
+            return winning_move
         else:
-            # play S for all 1000 iterations against the last bot
-            next_move = 'S'
+            # If previous play is not available, make a random move
+            import random
+            return random.choice(["R", "P", "S"])
 
-    return next_move
-    return next_move
+
+    elif len(opponent_history) <= 2000:
+        next_move = 'P'
+    #     elif len(opponent_history) <= 3000:
+    #         # play the move that counters the opponent's last move for 1000 iterations against the third bot
+    #         if last_opponent_move == 'R':
+    #             next_move = 'P'
+    #         elif last_opponent_move == 'P':
+    #             next_move = 'S'
+    #         else:
+    #             next_move = 'R'
+    #     else:
+    #         # play S for all 1000 iterations against the last bot
+    #         next_move = 'S'
+    #
+    # return next_move
+    # return next_move
