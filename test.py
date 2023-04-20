@@ -43,11 +43,13 @@ choices = ["R", "P", "S"]
 
 # Generate an array of length 20 with random choices
 random_array = [random.choice(choices) for _ in range(20)]
-
+a = []
 print(random_array)
 
 # Iterate over the array and call the function with each element as input
 for choice in random_array:
-    print(abbey(choice))
+    a.append(abbey(choice))
+
+print(a)
 
 

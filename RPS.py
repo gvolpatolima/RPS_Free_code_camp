@@ -122,7 +122,8 @@ def player(prev_play, opponent_history=[]):
 
 
     elif len(opponent_history) <= 2000:
-        next_move = 'P'
+        ideal_response = {'P': 'S', 'R': 'P', 'S': 'R'}
+        return ideal_response[prev_play]
     #     elif len(opponent_history) <= 3000:
     #         # play the move that counters the opponent's last move for 1000 iterations against the third bot
     #         if last_opponent_move == 'R':
@@ -135,5 +136,5 @@ def player(prev_play, opponent_history=[]):
     #         # play S for all 1000 iterations against the last bot
     #         next_move = 'S'
     #
-    # return next_move
+    return next_move
     # return next_move
